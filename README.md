@@ -2,6 +2,8 @@
 
 This repository contains the development of an interactive queue management system created as part of the **Software Engineering I** course at **ESPOL (Escuela Superior Politécnica del Litoral)**. The system allows users to request service turns through a touchscreen kiosk and track their status via a public display or a personal QR code.
 
+> *(The content of this repository is versioned in Spanish; only external information, such as the main documentation, is available in English.)*
+
 ## 🎯 Project Objective
 
 To develop an efficient, user-friendly turn management system designed for high-traffic environments, incorporating best practices in **requirements engineering**, **prototyping**, and **agile methodologies**, particularly **Scrum**.
@@ -44,4 +46,6 @@ You can access the full project report and software requirements specification v
 
 👉 [View full project report](docs/)
 
+
+Guayaquil - Ecuador / 2025
 ---
