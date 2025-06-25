@@ -28,9 +28,10 @@ To develop an efficient, user-friendly turn management system designed for high-
 
 ## 📁 Repository Structure
 
+- `assets/` - External media and tools
 - `docs/` – Project documentation and support files
-- `user-stories/` – User stories and acceptance criteria
 - `figma/` - Functional prototype
+- `user-stories/` – User stories and acceptance criteria
 - `README.md` – Project overview
 
 ## 🧑‍💻 Team Members
