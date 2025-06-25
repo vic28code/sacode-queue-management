@@ -27,7 +27,6 @@ To develop an efficient, user-friendly turn management system designed for high-
 ## 📁 Repository Structure
 
 - `docs/` – Project documentation and support files
-- `mockups/` – UI mockups and wireframes
 - `user-stories/` – User stories and acceptance criteria
 - `figma/` - Functional prototype
 - `README.md` – Project overview
