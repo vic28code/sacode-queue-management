@@ -4,6 +4,7 @@
 
 ## Kiosk Interface in case of Success
 [Click here](https://www.figma.com/proto/I3SqsK6MvMDjZkn7mkqLnU/interfaz-kiosko?node-id=58-543&p=f&t=oxBD8jshv7nlKSfw-1&scaling=min-zoom&content-scaling=fixed&page-id=58%3A207&starting-point-node-id=58%3A543)
+![Screen 1](./assets/success/tk%20-%20screen%201.JPG)
 
 ## Kiosk Interface in case of Failure
 [Click here](https://www.figma.com/proto/I3SqsK6MvMDjZkn7mkqLnU/interfaz-kiosko?node-id=72-218&p=f&t=eP7yZHYaWutBXm4e-1&scaling=min-zoom&content-scaling=fixed&page-id=72%3A107&starting-point-node-id=72%3A218&show-proto-sidebar=1)
