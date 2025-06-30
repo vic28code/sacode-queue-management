@@ -5,13 +5,26 @@
 ## Kiosk Interface in case of Success
 [Click here](https://www.figma.com/proto/I3SqsK6MvMDjZkn7mkqLnU/interfaz-kiosko?node-id=58-543&p=f&t=oxBD8jshv7nlKSfw-1&scaling=min-zoom&content-scaling=fixed&page-id=58%3A207&starting-point-node-id=58%3A543)  
 
-The touchscreen kiosk begins with a welcome screen that invites users to tap and start the process. After this, the user selects the appropriate service area and proceeds to the turn generation options, where they can choose to create a new turn or retrieve an existing one. Depending on how the system has been configured by the administrator, the user may be required to enter personal information, such as an identification number, or they may be able to generate a turn directly without providing any data. Once the necessary steps are completed, the system generates the turn successfully and displays a confirmation screen with the turn number, estimated wait time, and a QR code for tracking, ensuring users have all the details they need to manage their queue position effectively.
+The touchscreen kiosk welcomes the user to start, then lets them select a service area and choose to create or retrieve a turn. Depending on the setup, they may enter personal info or generate a turn directly. Finally, the system shows the turn number, wait time, and a QR code for tracking.
 ![Screen 1](../assets/success/tk-screen1.JPG)
 ![Screen 2](../assets/success/tk-screen2.jpg)
+![Screen 3](../assets/success/tk-screen3new.jpg)
+![Screen 4](../assets/success/tk-screen4.JPG)
+![Screen 5](../assets/success/tk-screen5.jpg)  
 
+If a customer loses their turn, they can tap “I lost my turn”, enter the lost turn ID, and press “Request”. If the conditions are met, the system confirms the recovered turn, shows the new turn number, estimated wait time, and a QR code for tracking.  
+![Screen 1](../assets/success/tk-screen1.JPG)
+![Screen 2](../assets/success/tk-screen2.jpg)
+![Screen 3](../assets/success/tk-screen3lost.jpg)
+![Screen 4](../assets/success/tk-screen4recover.jpg)
+![Screen 5](../assets/success/tk-screen4-1.jpg)  
 
 ## Kiosk Interface in case of Failure
-[Click here](https://www.figma.com/proto/I3SqsK6MvMDjZkn7mkqLnU/interfaz-kiosko?node-id=72-218&p=f&t=eP7yZHYaWutBXm4e-1&scaling=min-zoom&content-scaling=fixed&page-id=72%3A107&starting-point-node-id=72%3A218&show-proto-sidebar=1)
+[Click here](https://www.figma.com/proto/I3SqsK6MvMDjZkn7mkqLnU/interfaz-kiosko?node-id=72-218&p=f&t=eP7yZHYaWutBXm4e-1&scaling=min-zoom&content-scaling=fixed&page-id=72%3A107&starting-point-node-id=72%3A218&show-proto-sidebar=1)  
+This flow shows what happens when the user leaves required fields empty during the turn generation or recovery process. After attempting to continue with incomplete information, the system displays an error screen notifying the user that there are empty fields and prompting them to try again.  
+
+
+This flow represents the scenario when the user enters invalid or incorrect information, such as an invalid ID number. When the system detects invalid data, it redirects the user to an error screen that explains the issue and offers an option to re-enter the information correctly.  
 
 ## Administrator Pannel
 [Click here](https://www.figma.com/proto/I3SqsK6MvMDjZkn7mkqLnU/interfaz-kiosko?node-id=182-42&p=f&t=8ZmT78y9XS4Yw5q3-1&scaling=contain&content-scaling=responsive&page-id=86%3A121&starting-point-node-id=182%3A42)
