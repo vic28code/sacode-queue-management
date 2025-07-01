@@ -75,6 +75,15 @@ Then we return to the branch page to see the next flow for administrative users:
 
 This page shows the TV display used to present the current and upcoming queue numbers to customers, alongside advertising content configured by the administrator.  
 
+![TV Screen 1](../assets/tv/tv-screen1.JPG)  
+The screens illustrate different scenarios: one where individual turns are called sequentially,  
+![TV Screen 2](../assets/tv/tv-screen2.JPG)  
+another where multiple turns are called simultaneously across different areas or categories depending on business logic  
+![TV Screen 4](../assets/tv/tv-screen4.JPG)  
+and an example of a simple error case in which the advertising content fails to load correctly.  
+![TV Screen 3](../assets/tv/tv-screen3.JPG)  
 
 ## User interface QR
-[Click here](https://www.figma.com/proto/I3SqsK6MvMDjZkn7mkqLnU/interfaz-kiosko?node-id=164-364&p=f&t=3hRM1usET0jUnCPn-1&scaling=scale-down&content-scaling=fixed&page-id=133%3A122&starting-point-node-id=164%3A364&show-proto-sidebar=1)
+[Click here](https://www.figma.com/proto/I3SqsK6MvMDjZkn7mkqLnU/interfaz-kiosko?node-id=164-364&p=f&t=3hRM1usET0jUnCPn-1&scaling=scale-down&content-scaling=fixed&page-id=133%3A122&starting-point-node-id=164%3A364&show-proto-sidebar=1)  
+This page shows what a user sees after scanning the QR code printed on their ticket when they take a turn. Through this view, the user can check the real-time status of their queue position at any moment, including dynamic alerts indicating whether their turn is approaching, still has a long wait time, or has already been called but they are late. It also displays an estimated time, the designated area to report to, and a list of helpful reminders to ensure they are prepared when their turn comes up, giving them full control and clear instructions throughout the process.  
+
