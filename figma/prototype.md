@@ -32,7 +32,7 @@ The flow keeps the same for both cases:
 ![Screen 4-1](../assets/failure/tkf-screen4-1.jpg)  
 ![Screen 3 Lost](../assets/failure/tkf-screen3lost.jpg)
 ![Screen 7](../assets/failure/tkf-screen7.JPG)  
-This screen would be shown: 
+This screen would be shown:  
 ![Screen 6](../assets/failure/tkf-screen6.JPG)  
 
 This flow represents the scenario when the user enters invalid or incorrect information, such as an invalid ID number. When the system detects invalid data, it redirects the user to an error screen that explains the issue and offers an option to re-enter the information correctly.  
