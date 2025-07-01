@@ -42,7 +42,7 @@ The flow keeps the same for both cases:
 ![Screen 3 New](../assets/failure/tkf-screen3new.jpg)
 ![Screen 4](../assets/failure/tkf-screen4.JPG)  
 ![Screen 3 Lost](../assets/failure/tkf-screen3lost.jpg)
-![Screen 4](../assets/failure/tk-screen4recover.JPG)  
+![Screen 4](../assets/failure/tk-screen4recover.jpg)  
 This screen would be shown:  
 ![Screen 5](../assets/failure/tkf-screen5.JPG)  
 
