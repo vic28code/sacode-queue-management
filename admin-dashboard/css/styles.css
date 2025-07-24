@@ -1,4 +1,4 @@
-/* styles.css */
+/* index.css */
 
 * {
   margin: 0;
@@ -9,14 +9,20 @@
 
 body {
   background-color: #b3b3b3;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
+
 
 .login-container {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .login-card {
@@ -69,4 +75,131 @@ input {
   display: block;
   text-decoration: underline;
   cursor: pointer;
+}
+
+/*dashboard.css*/
+
+
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #2f2f2f;
+  color: white;
+  padding: 1rem;
+}
+
+.sidebar h2 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin: 0.5rem 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.sidebar li:hover {
+  text-decoration: underline;
+}
+
+.main {
+  flex: 1;
+  background-color: #b3b3b3;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+  color: #222;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.quick-actions button {
+  padding: 0.75rem;
+  background-color: #2f2f2f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.quick-actions button:hover {
+  background-color: #1e1e1e;
+}
+
+/*sidebar.css*/
+.sidebar h2 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.sidebar-menu li a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.8rem;
+  background-color: #3b3b3b;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: background-color 0.2s;
+}
+
+.sidebar-menu li a:hover {
+  background-color: #555;
+}
+
+.sidebar-menu li.active {
+  background-color: #777;
+}
+
+.icon {
+  font-size: 1.1rem;
 }

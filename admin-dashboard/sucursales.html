@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sucursales - Sistema Turnero</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/sucursales.css">
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            fetch('sidebar.html')
+                .then(res => res.text())
+                .then(html => {
+                    document.getElementById('sidebar-container').innerHTML = html;
+                });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="layout">
+        <aside id="sidebar-container" class="sidebar"></aside>
+        <main class="main">
+            <h1>Administración de Sucursales</h1>
+            <p>Aquí puedes ver un resumen general de las sucursales operativas, su ubicación y estado.</p>
+
+            <div class="search-filter">
+                <input type="text" id="busqueda" placeholder="Buscar por nombre o código...">
+                <select id="filtro-ciudad">
+                    <option value="">Todas las ciudades</option>
+                    <option value="Guayaquil">Guayaquil</option>
+                    <option value="Córdova">Córdova</option>
+                </select>
+                <button onclick="filtrarSucursales()">Filtrar</button>
+            </div>
+
+            <section class="branch-grid" id="sucursal-lista">
+                <div class="branch-card" data-nombre="Sucursal Norte" data-ciudad="Guayaquil">
+                    <h2>Sucursal Norte</h2>
+                    <p><strong>Código:</strong> S3</p>
+                    <p><strong>Dirección:</strong> Av. Francisco de Orellana, Guayaquil 090112</p>
+                    <p><strong>Horario:</strong> 08:00 - 17:00</p>
+                    <p><strong>Kioskos Asignados:</strong> 3</p>
+                </div>
+
+                <div class="branch-card" data-nombre="Sucursal Centro" data-ciudad="Guayaquil">
+                    <h2>Sucursal Centro</h2>
+                    <p><strong>Código:</strong> MATRIZ</p>
+                    <p><strong>Dirección:</strong> Panamá & Av. 9 de Octubre, Guayaquil 090313</p>
+                    <p><strong>Horario:</strong> 09:00 - 18:00</p>
+                    <p><strong>Kioskos Asignados:</strong> 2</p>
+                </div>
+
+                <div class="branch-card" data-nombre="Sucursal Sur" data-ciudad="Córdova">
+                    <h2>Sucursal Sur</h2>
+                    <p><strong>Código:</strong> S18</p>
+                    <p><strong>Dirección:</strong> Av. Argüelles y Oriente, Córdova</p>
+                    <p><strong>Horario:</strong> 07:30 - 16:30</p>
+                    <p><strong>Kioskos Asignados:</strong> 1</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function filtrarSucursales() {
+            const texto = document.getElementById("busqueda").value.toLowerCase();
+            const ciudad = document.getElementById("filtro-ciudad").value;
+            const tarjetas = document.querySelectorAll(".branch-card");
+
+            tarjetas.forEach(card => {
+                const nombre = card.dataset.nombre.toLowerCase();
+                const city = card.dataset.ciudad;
+
+                const coincideNombre = nombre.includes(texto);
+                const coincideCiudad = ciudad === "" || city === ciudad;
+
+                card.style.display = (coincideNombre && coincideCiudad) ? "block" : "none";
+            });
+        }
+    </script>
+</body>
+
+</html>

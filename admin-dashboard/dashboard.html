@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Sistema Turnero</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/dashboard.css">
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      fetch('sidebar.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('sidebar-container').innerHTML = html;
+        });
+
+      const hoy = new Date().toLocaleDateString('es-EC', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      });
+      document.getElementById("fecha").textContent = hoy;
+    });
+  </script>
+</head>
+<body>
+  <div class="layout">
+    <aside id="sidebar-container" class="sidebar"></aside>
+
+    <main class="main">
+      <h1>Bienvenido, Administrador</h1>
+      <p>Hoy es <span id="fecha"></span></p>
+
+      <section class="stats-grid">
+        <div class="card">
+          <h2>132</h2>
+          <p>Turnos emitidos hoy</p>
+        </div>
+        <div class="card">
+          <h2>24.3 min</h2>
+          <p>Promedio de espera</p>
+        </div>
+        <div class="card">
+          <h2>8</h2>
+          <p>Pantallas en uso</p>
+        </div>
+        <div class="card">
+          <h2>4</h2>
+          <p>Administradores activos</p>
+        </div>
+        <div class="card">
+          <h2>7</h2>
+          <p>Sucursales operativas</p>
+        </div>
+        <div class="card">
+          <h2>1.3 min</h2>
+          <p>Tiempo promedio por atención</p>
+        </div>
+        <div class="card">
+          <h2>86%</h2>
+          <p>Turnos atendidos hoy</p>
+        </div>
+        <div class="card">
+          <h2>2</h2>
+          <p>Turnos pendientes</p>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
