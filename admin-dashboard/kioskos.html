@@ -20,10 +20,64 @@
   <div class="layout">
     <aside id="sidebar-container" class="sidebar"></aside>
     <main class="main">
+      <div class="top-bar">
+        <a href="addKiosko.html" class="btn-add-kiosko">+ Nuevo Kiosko</a>
+      </div>
       <h1>Administración de Kioskos</h1>
-      <p>Aquí se listarán los kioskos operativos por sucursal, incluyendo responsable y estado.</p>
-      <!-- Contenido futuro -->
+      <p>Aquí puedes ver un resumen general de los kioskos operativos, su sucursal, responsable y estado.</p>
+
+      <div class="search-filter">
+        <input type="text" id="busqueda-kiosko" placeholder="Buscar por nombre o responsable...">
+        <select id="filtro-sucursal">
+          <option value="">Todas las sucursales</option>
+          <option value="Centro">Centro</option>
+          <option value="Norte">Norte</option>
+        </select>
+        <button onclick="filtrarKioskos()">Filtrar</button>
+      </div>
+
+      <section class="kiosk-grid" id="kiosko-lista">
+        <div class="kiosk-card" data-nombre="Kiosko A" data-sucursal="Centro" data-responsable="Victoria Angulo">
+          <h2>Kiosko A</h2>
+          <p><strong>Sucursal:</strong> Centro</p>
+          <p><strong>Responsable:</strong> Victoria Angulo</p>
+          <p><strong>Estado:</strong> Activo</p>
+          <button class="btn-config">Configurar</button>
+        </div>
+        <div class="kiosk-card" data-nombre="Kiosko B" data-sucursal="Centro" data-responsable="Victoria Angulo">
+          <h2>Kiosko B</h2>
+          <p><strong>Sucursal:</strong> Centro</p>
+          <p><strong>Responsable:</strong> Victoria Angulo</p>
+          <p><strong>Estado:</strong> Inactivo</p>
+          <button class="btn-config">Configurar</button>
+        </div>
+        <div class="kiosk-card" data-nombre="Kiosko C" data-sucursal="Norte" data-responsable="Bianca Vanoni">
+          <h2>Kiosko C</h2>
+          <p><strong>Sucursal:</strong> Norte</p>
+          <p><strong>Responsable:</strong> Bianca Vanoni</p>
+          <p><strong>Estado:</strong> Activo</p>
+          <button class="btn-config">Configurar</button>
+        </div>
+      </section>
     </main>
   </div>
+  <script>
+    function filtrarKioskos() {
+      const texto = document.getElementById("busqueda-kiosko").value.toLowerCase();
+      const sucursal = document.getElementById("filtro-sucursal").value;
+      const tarjetas = document.querySelectorAll(".kiosk-card");
+
+      tarjetas.forEach(card => {
+        const nombre = card.dataset.nombre.toLowerCase();
+        const responsable = card.dataset.responsable.toLowerCase();
+        const suc = card.dataset.sucursal;
+
+        const coincideNombre = nombre.includes(texto) || responsable.includes(texto);
+        const coincideSucursal = sucursal === "" || suc === sucursal;
+
+        card.style.display = (coincideNombre && coincideSucursal) ? "block" : "none";
+      });
+    }
+  </script>
 </body>
 </html>
