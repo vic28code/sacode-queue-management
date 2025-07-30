@@ -24,19 +24,49 @@
         <main class="main">
             <h1>Administración de Sucursales</h1>
             <p>Aquí puedes ver un resumen general de las sucursales operativas, su ubicación y estado.</p>
-
+            <br>
             <div class="search-filter">
                 <input type="text" id="busqueda" placeholder="Buscar por nombre o código...">
+
                 <select id="filtro-ciudad">
                     <option value="">Todas las ciudades</option>
                     <option value="Guayaquil">Guayaquil</option>
                     <option value="Córdova">Córdova</option>
                 </select>
+
+                <select id="filtro-region">
+                    <option value="">Todas las regiones</option>
+                    <option value="Costa">Costa</option>
+                    <option value="Sierra">Sierra</option>
+                </select>
+
+                <select id="filtro-estado">
+                    <option value="">Todos los estados</option>
+                    <option value="activa">Activa</option>
+                    <option value="mantenimiento">En mantenimiento</option>
+                    <option value="cerrada">Cerrada</option>
+                </select>
+
+                <select id="filtro-kioskos">
+                    <option value="">Cantidad de kioskos</option>
+                    <option value="0">0</option>
+                    <option value="1-3">1 a 3</option>
+                    <option value="4+">Más de 4</option>
+                </select>
+
+                <select id="filtro-prioridad">
+                    <option value="">Nivel de prioridad</option>
+                    <option value="alta">Alta</option>
+                    <option value="media">Media</option>
+                    <option value="baja">Baja</option>
+                </select>
+                <br>
                 <button onclick="filtrarSucursales()">Filtrar</button>
             </div>
-
+            
             <section class="branch-grid" id="sucursal-lista">
-                <div class="branch-card" data-nombre="Sucursal Norte" data-ciudad="Guayaquil">
+                <div class="branch-card" data-nombre="Sucursal Norte" data-ciudad="Guayaquil" data-region="Costa"
+                    data-estado="activa" data-kioskos="3" data-prioridad="alta">
                     <h2>Sucursal Norte</h2>
                     <p><strong>Código:</strong> S3</p>
                     <p><strong>Dirección:</strong> Av. Francisco de Orellana, Guayaquil 090112</p>
@@ -44,7 +74,8 @@
                     <p><strong>Kioskos Asignados:</strong> 3</p>
                 </div>
 
-                <div class="branch-card" data-nombre="Sucursal Centro" data-ciudad="Guayaquil">
+                <div class="branch-card" data-nombre="Sucursal Centro" data-ciudad="Guayaquil" data-region="Costa"
+                    data-estado="mantenimiento" data-kioskos="2" data-prioridad="media">
                     <h2>Sucursal Centro</h2>
                     <p><strong>Código:</strong> MATRIZ</p>
                     <p><strong>Dirección:</strong> Panamá & Av. 9 de Octubre, Guayaquil 090313</p>
@@ -52,7 +83,8 @@
                     <p><strong>Kioskos Asignados:</strong> 2</p>
                 </div>
 
-                <div class="branch-card" data-nombre="Sucursal Sur" data-ciudad="Córdova">
+                <div class="branch-card" data-nombre="Sucursal Sur" data-ciudad="Córdova" data-region="Sierra"
+                    data-estado="activa" data-kioskos="1" data-prioridad="baja">
                     <h2>Sucursal Sur</h2>
                     <p><strong>Código:</strong> S18</p>
                     <p><strong>Dirección:</strong> Av. Argüelles y Oriente, Córdova</p>
@@ -67,16 +99,34 @@
         function filtrarSucursales() {
             const texto = document.getElementById("busqueda").value.toLowerCase();
             const ciudad = document.getElementById("filtro-ciudad").value;
+            const region = document.getElementById("filtro-region").value;
+            const estado = document.getElementById("filtro-estado").value;
+            const kioskos = document.getElementById("filtro-kioskos").value;
+            const prioridad = document.getElementById("filtro-prioridad").value;
+
             const tarjetas = document.querySelectorAll(".branch-card");
 
             tarjetas.forEach(card => {
                 const nombre = card.dataset.nombre.toLowerCase();
                 const city = card.dataset.ciudad;
+                const reg = card.dataset.region;
+                const est = card.dataset.estado;
+                const kios = parseInt(card.dataset.kioskos);
+                const prio = card.dataset.prioridad;
 
                 const coincideNombre = nombre.includes(texto);
                 const coincideCiudad = ciudad === "" || city === ciudad;
+                const coincideRegion = region === "" || reg === region;
+                const coincideEstado = estado === "" || est === estado;
+                const coincideKioskos =
+                    kioskos === "" ||
+                    (kioskos === "0" && kios === 0) ||
+                    (kioskos === "1-3" && kios >= 1 && kios <= 3) ||
+                    (kioskos === "4+" && kios >= 4);
+                const coincidePrioridad = prioridad === "" || prio === prioridad;
 
-                card.style.display = (coincideNombre && coincideCiudad) ? "block" : "none";
+                const mostrar = coincideNombre && coincideCiudad && coincideRegion && coincideEstado && coincideKioskos && coincidePrioridad;
+                card.style.display = mostrar ? "block" : "none";
             });
         }
     </script>

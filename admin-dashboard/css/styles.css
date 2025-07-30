@@ -203,3 +203,11 @@ input {
 .icon {
   font-size: 1.1rem;
 }
+
+.sidebar-menu .icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 10px;
+  filter: invert(1);
+}
