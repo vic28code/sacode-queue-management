@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,50 +18,105 @@
         });
     </script>
 </head>
+
 <body>
     <div class="layout">
         <aside id="sidebar-container" class="sidebar"></aside>
         <main class="main">
-            <div class="sucursal-form-container">
-                <h2>
-                    Sucursal Norte
-                    <span class="edit-icon" title="Editar nombre">&#9998;</span>
-                </h2>
-                <form>
-                    <div class="sucursal-form-group">
-                        <label for="descripcion">Descripción:</label>
-                        <input type="text" id="descripcion" placeholder="Defina una breve descripción para esta sucursal">
+            <h2 style="display: flex; align-items: center; gap: 8px;">
+                <span id="nombre-sucursal-text" style="font-size: 1.4em; font-weight: bold; flex: 1;">Sucursal Norte
+                </span>
+                <input type="text" id="nombre-sucursal-input" value="Sucursal Norte"
+                    style="display:none; font-size: 1.4em; font-weight: bold; border: none; background: transparent; width: auto; flex: 1; outline: none; padding: 0; margin: 0;">
+                <span class="edit-icon" id="edit-nombre-sucursal" title="Editar nombre" style="cursor:pointer;">&#9998;
+                </span>
+            </h2>
+            <br>
+            <form class="sucursal-form">
+                <div class="sucursal-form-group">
+                    <label for="descripcion">Descripción:</label>
+                    <input type="text" id="descripcion" placeholder="Defina una breve descripción para esta sucursal"
+                        maxlength="160">
+                    <div class="limite-texto">Límite de 160 caracteres</div>
+                </div>
+                <div class="sucursal-form-group">
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" placeholder="Ingrese la dirección de la sucursal" maxlength="100">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1993.5188873223058!2d-79.97662788392574!3d-2.1391996259160573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sec!4v1753811106478!5m2!1ses-419!2sec"
+                        width="100%" height="160" style="border:0; border-radius:6px;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="horarios-row">
+                    <div class="horario-col">
+                        <label for="hora-apertura">Horario de apertura:</label>
+                        <input type="time" id="hora-apertura" value="08:00">
                     </div>
-                    <div class="sucursal-form-group">
-                        <label for="direccion">Dirección:</label>
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1993.5188873223058!2d-79.97662788392574!3d-2.1391996259160573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sec!4v1753811106478!5m2!1ses-419!2sec"
-                            width="100%" height="160" style="border:0; border-radius:6px;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="horario-col">
+                        <label for="hora-cierre">Horario de cierre:</label>
+                        <input type="time" id="hora-cierre" value="17:00">
                     </div>
-                    <div class="horarios-row">
-                        <div class="horario-col">
-                            <label for="hora-apertura">Horario de apertura:</label>
-                            <input type="time" id="hora-apertura" value="08:00">
-                        </div>
-                        <div class="horario-col">
-                            <label for="hora-cierre">Horario de cierre:</label>
-                            <input type="time" id="hora-cierre" value="17:00">
-                        </div>
+                </div>
+                <div class="sucursal-form-group">
+                    <label for="buscador-kioskos">Buscar kioskos:</label>
+                    <input type="text" id="buscador-kioskos" placeholder="Buscar por nombre..." />
+
+                    <label for="lista-kioskos">Kioskos disponibles:</label>
+                    <div id="lista-kioskos" class="kiosko-lista">
                     </div>
-                    <div class="sucursal-form-group">
-                        <label for="kioskos">Kioskos asignados:</label>
-                        <select id="kioskos">
-                            <option>Kioskos</option>
-                            <option>Kiosko A</option>
-                            <option>Kiosko B</option>
-                            <option>Kiosko C</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-            <button class="guardar-btn">Guardar cambios</button>
+                </div>
+
+
+                <button class="guardar-btn" type="submit">Guardar cambios</button>
+            </form>
         </main>
     </div>
+    <script>
+        const kioskosDisponibles = [
+            { id: 1, nombre: "Kiosko A" },
+            { id: 2, nombre: "Kiosko B" },
+            { id: 3, nombre: "Kiosko C" },
+            { id: 4, nombre: "Kiosko D" },
+            { id: 5, nombre: "Kiosko E" },
+        ];
+
+        const inputBuscador = document.getElementById("buscador-kioskos");
+        const contenedorLista = document.getElementById("lista-kioskos");
+
+        function renderKioskos(filtro = "") {
+            contenedorLista.innerHTML = "";
+
+            const filtrados = kioskosDisponibles.filter(k =>
+                k.nombre.toLowerCase().includes(filtro.toLowerCase())
+            );
+
+            filtrados.forEach(k => {
+                const wrapper = document.createElement("div");
+                wrapper.className = "kiosko-item";
+
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.id = `kiosko-${k.id}`;
+                checkbox.value = k.id;
+
+                const label = document.createElement("label");
+                label.htmlFor = checkbox.id;
+                label.innerText = k.nombre;
+
+                wrapper.appendChild(checkbox);
+                wrapper.appendChild(label);
+                contenedorLista.appendChild(wrapper);
+            });
+        }
+
+        inputBuscador.addEventListener("input", () => {
+            renderKioskos(inputBuscador.value);
+        });
+
+        renderKioskos();
+    </script>
+
+
 </body>
+
 </html>
