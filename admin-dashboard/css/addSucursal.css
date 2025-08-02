@@ -2,14 +2,12 @@ body {
     background: #f5f6fa;
 }
 
-
 .main {
     display: block;
     margin: 0;
     padding: 32px 40px 0 40px;
     max-width: none;
 }
-
 
 .sucursal-form-container {
     background: none;
@@ -19,29 +17,38 @@ body {
     margin: 0;
 }
 
-
 .sucursal-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-
 .guardar-btn {
     align-self: flex-start;
     margin-top: 16px;
+    background-color: #737374;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
+.guardar-btn:hover {
+    background-color: #000000;
+}
 
-.sucursal-form-group {
+.sucursal-form-kiosko {
     display: flex;
-    flex-direction: column;
-    gap: 6px;
+    gap: 0.5em;
+    margin-bottom: 1.5em;
 }
 
 .sucursal-form-group label {
-    display: block;
-    margin-bottom: 0.4em;
+    font-weight: 500;
+    margin-bottom: 4px;
     color: #444;
     font-size: 1em;
 }
@@ -54,66 +61,69 @@ body {
     border: 1.2px solid #d1d1d1;
     border-radius: 6px;
     font-size: 1em;
-    margin-bottom: 0.2em;
-    background: #fafafa;
 }
 
-.sucursal-form-group textarea {
-    resize: vertical;
-    min-height: 40px;
+.grupo-direccion input {
+    margin-bottom: 16px;
 }
 
-/* Ajusta los horarios */
+.limite-texto {
+    font-size: 0.8em;
+    color: #515151;
+    margin-top: 5px;
+    text-align: right;
+}
+
 .horarios-row {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
 }
+
 .horario-col {
     flex: 1;
     display: flex;
     flex-direction: column;
+    gap: 4px;
+}
+
+.filtros-kiosko {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 12px 0;
+}
+
+.filtros-kiosko label {
+    display: flex;
+    align-items: center;
     gap: 6px;
-}
-
-.mapa-demo {
-    width: 100%;
-    height: 120px;
-    border-radius: 6px;
-    margin-bottom: 1em;
-    object-fit: cover;
-    border: 1px solid #e0e0e0;
-}
-
-.limite-texto {
-    text-align: right;
-    font-size: 0.92em;
-    color: #888;
-    margin-top: -8px;
     margin-bottom: 0;
 }
 
+
 .kiosko-lista {
-  background: #f7f7f7;
-  padding: 10px;
-  border-radius: 8px;
-  max-height: 200px;
-  overflow-y: auto;
-  margin-top: 6px;
-  border: 1px solid #ccc;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
 }
 
-.kiosko-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 6px;
+.kiosko-item-button {
+    padding: 12px;
+    text-align: center;
+    border-radius: 6px;
+    background-color: #f1f1f1;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
-.kiosko-item label {
-  cursor: pointer;
-}
-
-
-#buscador-kioskos {
-  margin-bottom: 0.4em;
+.kiosko-item-button.selected {
+    background-color: #4a90e2;
+    color: white;
+    border-color: #357ABD;
 }
