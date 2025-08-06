@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Administración de Publicidad</title>
+  <title>Publicidad - Sistema Turnero</title>
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="./css/publicidad.css">
   <script>
@@ -21,68 +21,79 @@
 <body>
   <div class="layout">
     <aside id="sidebar-container" class="sidebar"></aside>
-    <main class="main">
-      <h1><strong>Administración de Publicidad</strong></h1>
+    <main class="main-content">
+      <div class="top-bar">
+        <a href="addPublicidad.html" class="btn-add-publicidad">+ Nueva Publicidad</a>
+      </div>
+      <h1>Administración de Publicidad</h1>
+      <br>
+      <div class="search-filter">
+        <input type="text" id="busqueda-publicidad" placeholder="Buscar por nombre o código...">
+        <select id="filtro-publicidad">
+          <option value="">Todas las marcas</option>
+          <option value="Marca 1">Marca 1</option>
+          <option value="Marca 2">Marca 2</option>
+          <option value="Marca 3">Marca 3</option>
+          <option value="Marca 4">Marca 4</option>
+          <option value="Marca 5">Marca 5</option>
+        </select>
 
-      <section class="filters">
-        <div class="filter-item">
-          <label for="sucursal">Sucursal:</label>
-          <select id="sucursal">
-            <option value="todas">Todas las sucursales</option>
-            <option value="sucursal-norte">Sucursal Norte</option>
-            <option value="sucursal-centro">Sucursal Centro</option>
-            <option value="sucursal-sur">Sucursal Sur</option>
-          </select>
-        </div>
+        <button onclick="filtrarPublicidad()">Filtrar</button>
+      </div>
 
-        <div class="filter-item">
-          <label for="estado">Estado:</label>
-          <select id="estado">
-            <option value="todos">Todos los estados</option>
-            <option value="activo">Activo</option>
-            <option value="inactivo">Inactivo</option>
-          </select>
+      <section class="advertisement-grid" id="advertisement-lista">
+        <div class="advertisement-card" data-nombre="Advertisement A" data-marca="Marca 1" data-duracion="2 minutos"
+          data-frecuencia="10 minutos">
+          <h2>Anuncio A</h2>
+          <p><strong>Marca:</strong> 1</p>
+          <p><strong>Duración:</strong> 2 minutos</p>
+          <p><strong>Frecuencia:</strong>10 minutos</p>
+          <button class="btn-config">Configurar</button>
         </div>
-
-        <div class="filter-item">
-          <label for="prioridad">Nivel de prioridad:</label>
-          <select id="prioridad">
-            <option value="todos">Todos los niveles</option>
-            <option value="alto">Alto</option>
-            <option value="medio">Medio</option>
-            <option value="bajo">Bajo</option>
-          </select>
+        <div class="advertisement-card" data-nombre="Advertisement B" data-marca="Marca 1" data-duracion="3 minutos"
+          data-frecuencia="5 minutos">
+          <h2>Anuncio B</h2>
+          <p><strong>Marca:</strong> 1</p>
+          <p><strong>Duración:</strong> 3 minutos</p>
+          <p><strong>Frecuencia:</strong>5 minutos</p>
+          <button class="btn-config">Configurar</button>
         </div>
-
-        <button class="btn btn-filter">Filtrar</button>
-      </section>
-
-      <section class="advertisements">
-        <h2>Publicidad Asignada</h2>
-        <div class="advertisement">
-          <h3>Sucursal Norte</h3>
-          <p>Código: S3</p>
-          <p>Horario: 08:00 - 17:00</p>
-          <p>Kioskos Asignados: 3</p>
-          <button class="btn btn-edit">Editar</button>
+        <div class="advertisement-card" data-nombre="Advertisement B" data-marca="Marca 2" data-duracion="2 minutos"
+          data-frecuencia="4 minutos">
+          <h2>Anuncio C</h2>
+          <p><strong>Marca:</strong> 2</p>
+          <p><strong>Duración:</strong> 2 minutos</p>
+          <p><strong>Frecuencia:</strong>4 minutos</p>
+          <button class="btn-config">Configurar</button>
         </div>
-        <div class="advertisement">
-          <h3>Sucursal Centro</h3>
-          <p>Código: MATRIZ</p>
-          <p>Horario: 09:00 - 18:00</p>
-          <p>Kioskos Asignados: 2</p>
-          <button class="btn btn-edit">Editar</button>
-        </div>
-        <div class="advertisement">
-          <h3>Sucursal Sur</h3>
-          <p>Código: S18</p>
-          <p>Horario: 07:30 - 16:30</p>
-          <p>Kioskos Asignados: 1</p>
-          <button class="btn btn-edit">Editar</button>
+        <div class="advertisement-card" data-nombre="Advertisement D" data-marca="Marca 2" data-duracion="2 minutos"
+          data-frecuencia="6 minutos">
+          <h2>Anuncio D</h2>
+          <p><strong>Marca:</strong> 2</p>
+          <p><strong>Duración:</strong> 1 minuto 30 segundos</p>
+          <p><strong>Frecuencia:</strong>6 minutos</p>
+          <button class="btn-config">Configurar</button>
         </div>
       </section>
     </main>
   </div>
+  <script>
+    function filtrarPublicidad() {
+      const texto = document.getElementById("busqueda-publicidad").value.toLowerCase();
+      const marcaSeleccionada = document.getElementById("filtro-publicidad").value.toLowerCase();
+      const tarjetas = document.querySelectorAll(".advertisement-card");
+
+      tarjetas.forEach(card => {
+        const nombre = card.dataset.nombre.toLowerCase();
+        const marca = card.dataset.marca.toLowerCase();
+
+        const coincideTexto = nombre.includes(texto) || marca.includes(texto);
+        const coincideMarca = !marcaSeleccionada || marca === marcaSeleccionada;
+        card.style.display = (coincideTexto && coincideMarca) ? "block" : "none";
+      });
+    }
+  </script>
+
 </body>
 
 </html>
