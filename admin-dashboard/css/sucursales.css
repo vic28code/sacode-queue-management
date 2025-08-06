@@ -1,8 +1,10 @@
 .top-bar {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 1rem;
 }
+
 
 .btn-add-sucursal {
   background-color: #2c3e50;

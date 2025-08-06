@@ -23,24 +23,26 @@
         <aside id="sidebar-container" class="sidebar"></aside>
         <main class="main">
             <div class="top-bar">
+                <h1><strong>Administración de Sucursales</strong></h1>
                 <a href="addSucursal.html" class="btn-add-sucursal">+ Nueva Sucursal</a>
             </div>
-            <h1>Administración de Sucursales</h1>
-            <p>Aquí puedes ver un resumen general de las sucursales operativas, su ubicación y estado.</p>
             <br>
             <div class="search-filter">
                 <input type="text" id="busqueda" placeholder="Buscar por nombre o código...">
-
-                <select id="filtro-ciudad">
-                    <option value="">Todas las ciudades</option>
-                    <option value="Guayaquil">Guayaquil</option>
-                    <option value="Córdova">Córdova</option>
-                </select>
-
-                <select id="filtro-region">
+                <select id="filtro-region" onchange="actualizarProvincias()">
                     <option value="">Todas las regiones</option>
                     <option value="Costa">Costa</option>
                     <option value="Sierra">Sierra</option>
+                    <option value="Amazonía">Amazonía</option>
+                    <option value="Galápagos">Galápagos</option>
+                </select>
+
+                <select id="filtro-provincia" onchange="actualizarCiudades()">
+                    <option value="">Todas las provincias</option>
+                </select>
+
+                <select id="filtro-ciudad">
+                    <option value="">Todas las ciudades</option>
                 </select>
 
                 <select id="filtro-estado">
@@ -56,17 +58,10 @@
                     <option value="1-3">1 a 3</option>
                     <option value="4+">Más de 4</option>
                 </select>
-
-                <select id="filtro-prioridad">
-                    <option value="">Nivel de prioridad</option>
-                    <option value="alta">Alta</option>
-                    <option value="media">Media</option>
-                    <option value="baja">Baja</option>
-                </select>
                 <br>
                 <button onclick="filtrarSucursales()">Filtrar</button>
             </div>
-            
+
             <section class="branch-grid" id="sucursal-lista">
                 <div class="branch-card" data-nombre="Sucursal Norte" data-ciudad="Guayaquil" data-region="Costa"
                     data-estado="activa" data-kioskos="3" data-prioridad="alta">
@@ -105,7 +100,6 @@
             const region = document.getElementById("filtro-region").value;
             const estado = document.getElementById("filtro-estado").value;
             const kioskos = document.getElementById("filtro-kioskos").value;
-            const prioridad = document.getElementById("filtro-prioridad").value;
 
             const tarjetas = document.querySelectorAll(".branch-card");
 
@@ -115,7 +109,6 @@
                 const reg = card.dataset.region;
                 const est = card.dataset.estado;
                 const kios = parseInt(card.dataset.kioskos);
-                const prio = card.dataset.prioridad;
 
                 const coincideNombre = nombre.includes(texto);
                 const coincideCiudad = ciudad === "" || city === ciudad;
@@ -126,13 +119,68 @@
                     (kioskos === "0" && kios === 0) ||
                     (kioskos === "1-3" && kios >= 1 && kios <= 3) ||
                     (kioskos === "4+" && kios >= 4);
-                const coincidePrioridad = prioridad === "" || prio === prioridad;
 
-                const mostrar = coincideNombre && coincideCiudad && coincideRegion && coincideEstado && coincideKioskos && coincidePrioridad;
+                const mostrar = coincideNombre && coincideCiudad && coincideRegion && coincideEstado && coincideKioskos;
                 card.style.display = mostrar ? "block" : "none";
             });
         }
     </script>
+    <script>
+        const data = {
+            "Costa": {
+                "Guayas": ["Guayaquil", "Daule"],
+                "Manabí": ["Manta", "Portoviejo"]
+            },
+            "Sierra": {
+                "Pichincha": ["Quito", "Cayambe"],
+                "Azuay": ["Cuenca", "Gualaceo"]
+            },
+            "Amazonía": {
+                "Napo": ["Tena", "Archidona"],
+                "Pastaza": ["Puyo"]
+            },
+            "Galápagos": {
+                "Santa Cruz": ["Puerto Ayora"],
+                "San Cristóbal": ["Puerto Baquerizo Moreno"]
+            }
+        };
+
+        function actualizarProvincias() {
+            const region = document.getElementById("filtro-region").value;
+            const provinciaSelect = document.getElementById("filtro-provincia");
+            const ciudadSelect = document.getElementById("filtro-ciudad");
+
+            provinciaSelect.innerHTML = '<option value="">Todas las provincias</option>';
+            ciudadSelect.innerHTML = '<option value="">Todas las ciudades</option>';
+
+            if (region && data[region]) {
+                for (const provincia in data[region]) {
+                    const option = document.createElement("option");
+                    option.value = provincia;
+                    option.textContent = provincia;
+                    provinciaSelect.appendChild(option);
+                }
+            }
+        }
+
+        function actualizarCiudades() {
+            const region = document.getElementById("filtro-region").value;
+            const provincia = document.getElementById("filtro-provincia").value;
+            const ciudadSelect = document.getElementById("filtro-ciudad");
+
+            ciudadSelect.innerHTML = '<option value="">Todas las ciudades</option>';
+
+            if (region && provincia && data[region] && data[region][provincia]) {
+                for (const ciudad of data[region][provincia]) {
+                    const option = document.createElement("option");
+                    option.value = ciudad;
+                    option.textContent = ciudad;
+                    ciudadSelect.appendChild(option);
+                }
+            }
+        }
+    </script>
+
 </body>
 
 </html>
