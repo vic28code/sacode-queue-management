@@ -47,28 +47,42 @@ This screen would be shown:
 ![Screen 5](../assets/failure/tkf-screen5.JPG)  
 
 ## Administrator Pannel
-[Click here](https://www.figma.com/proto/I3SqsK6MvMDjZkn7mkqLnU/interfaz-kiosko?node-id=182-42&p=f&t=8ZmT78y9XS4Yw5q3-1&scaling=contain&content-scaling=responsive&page-id=86%3A121&starting-point-node-id=182%3A42)  
+[Click here](https://github.com/FabricioChang/Sistema-Turnero-React)  
 
 This page shows the administrator’s desktop software provided with the queue management system. Through this interface, the administrator can fully manage and customize the system according to their needs: they can create and assign branches, kiosks, and screens; configure which advertising content will be displayed on customer-facing TVs; and adjust the kiosk settings to handle turn generation as desired. The software also allows them to add and manage other administrative users, assign roles and permissions, and oversee all queue operations, ensuring that the entire system is tailored to their specific business logic and customer service flow.  
-![Admin Screen 1](../assets/admin/admin-screen1.JPG)
-![Admin Screen 2](../assets/admin/admin-screen2.JPG)
-![Admin Screen 3](../assets/admin/admin-screen3.JPG)
-![Admin Screen 4](../assets/admin/admin-screen4.JPG)
-![Admin Screen 5](../assets/admin/admin-screen5.JPG)  
-Here we have three different flows shown, this is the first one for kiosks:  
+![Admin Screen 1](../assets/admin/registrarse.JPG)  
+![Admin Screen 2](../assets/admin/login.JPG)  
+![Admin Screen 3](../assets/admin/dashboard.JPG)  
+![Admin Screen 4](../assets/admin/sucursales.JPG)  
+![Admin Screen 5](../assets/admin/addSucursal.JPG)
+![Admin Screen 16](../assets/admin/addSucursal2.JPG) 
+![Admin Screen 6](../assets/admin/detallesSucursal.JPG)  
+![Admin Screen 7](../assets/admin/configSucursal.JPG) 
+![Admin Screen 8](../assets/admin/configSucursal2.JPG) 
+![Admin Screen 9](../assets/admin/configSucursal3.JPG) 
+![Admin Screen 10](../assets/admin/kioskos.JPG)  
+![Admin Screen 11](../assets/admin/addKiosko.JPG)  
+![Admin Screen 12](../assets/admin/categorias.JPG)  
+![Admin Screen 13](../assets/admin/addCategoria.JPG) 
+![Admin Screen 28](../assets/admin/addCategoria2.JPG) 
+![Admin Screen 19](../assets/admin/pantallas.JPG)  
+![Admin Screen 14](../assets/admin/addPantalla.JPG)  
+![Admin Screen 16](../assets/admin/asignarPantalla.JPG)  
+![Admin Screen 20](../assets/admin/publicidad.JPG) 
+![Admin Screen 17](../assets/admin/asignarPublicidad.JPG)  
+![Admin Screen 24](../assets/admin/roles.JPG)  
+![Admin Screen 15](../assets/admin/addRol.JPG) 
+![Admin Screen 26](../assets/admin/turnos.JPG)  
+![Admin Screen 18](../assets/admin/usuarios.JPG) 
+![Admin Screen 30](../assets/admin/addUsuario.JPG)  
+![Admin Screen 21](../assets/admin/reportes2.JPG)  
+![Admin Screen 22](../assets/admin/reportes3.JPG)  
+![Admin Screen 23](../assets/admin/reportes4.JPG)  
+![Admin Screen 25](../assets/admin/soporte.JPG)  
+![Admin Screen 18](../assets/admin/config.JPG) 
 
-![Admin Screen 6](../assets/admin/admin-screen6.JPG)
-![Admin Screen 6-1](../assets/admin/admin-screen6-1.JPG)
-![Admin Screen 6-2](../assets/admin/admin-screen6-2.JPG)  
-Then we return to the branch page to see the next flow for screens:  
 
-![Admin Screen 6 Screen](../assets/admin/admin-screen6-screen.jpg)
-![Admin Screen 6 Screens](../assets/admin/admin-screen6screens.JPG)  
 
-Then we return to the branch page to see the next flow for administrative users:  
-![Admin Screen 6 Users](../assets/admin/admin-screen6-users.jpg)
-![Admin Screen 6-2-2](../assets/admin/admin-screen6-2-2.JPG)
-![Admin Screen 6-2-2-3](../assets/admin/admin-screen6-2-2-3.JPG)  
 
 ## TV interface
 [Click here](https://www.figma.com/proto/I3SqsK6MvMDjZkn7mkqLnU/interfaz-kiosko?node-id=125-35&p=f&t=nuzWrON6DwYqYt2I-1&scaling=scale-down&content-scaling=fixed&page-id=93%3A9&starting-point-node-id=125%3A35&show-proto-sidebar=1)  
