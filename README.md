@@ -36,9 +36,10 @@ To develop an efficient, user-friendly turn management system designed for high-
 
 ## 🧑‍💻 Team Members
 
-- **Angulo Borja Hilda Victoria** – Development Team  
+- **Angulo Borja Hilda Victoria** – Development Team
+- **Barragan Guillin Cristhian Joseph** – Development Team 
 - **Chang Encalada Fabricio Alberto** – Development Team  
-- **Sornoza Vera Alejandro Francisco** – Scrum Master  
+- **Sornoza Vera Alejandro Francisco** – Scrum Master
 - **Carrillo Juan** – Product Owner  
 
 ## 📄 Project Report
