@@ -20,11 +20,10 @@ To develop an efficient, user-friendly turn management system designed for high-
 
 > *(These technologies will be considered in future development stages)*
 
-- **Frontend (kiosk + display)**: React.js / Flutter Web
-- **Backend**: Node.js + Express / Django / Laravel
-- **Database**: PostgreSQL / MongoDB
-- **Real-time communication**: WebSocket / Firebase
-- **QR code generation**: Libraries like `qrcode` (JS), `qr_flutter` (Flutter)
+- **Frontend (kiosk + display)**: React.js
+- **Backend**: Node.js + Express / Django
+- **Database**: PostgreSQL / Supabase
+- **QR code generation**: Libraries like `qrcode` (JS)
 
 ## 📁 Repository Structure
 
@@ -50,4 +49,20 @@ You can access the full project report and software requirements specification v
 
 
 Guayaquil - Ecuador / 2025
+
+## Updates about the latest version of the project:
+
+We made the complete demo for the complete project, so we got these separate repositories already deployed and attached to the respective database:
+
+### Links to the deployed system:
+• QR Web Page (Customer Interface):
+https://interfaz-usuario-mu.vercel.app/
+• Touch Kiosk Interface:
+https://interfaz-kiosko.vercel.app/
+• Public TV Display Interface:
+https://interfaz-tv.vercel.app/
+• Administrative Panel:
+https://ecuador-turnero-admin.vercel.app/login
+
+
 ---
